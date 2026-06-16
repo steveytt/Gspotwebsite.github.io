@@ -353,6 +353,147 @@
   }
   .services-foot strong{ color:var(--cyan); }
 
+  /* ===== Vehicle Finder / Viezu partner section ===== */
+  .finder-grid{
+    display:grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap:48px;
+    align-items:start;
+  }
+  .finder-intro .badge-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .finder-intro .badge-row img{ width:36px; height:36px; opacity:.9; }
+  .finder-intro .badge-row .partner-tag{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:1.5px;
+    color:var(--cyan);
+    text-transform:uppercase;
+    border:1px solid var(--cyan-dim);
+    padding:5px 12px;
+    border-radius:2px;
+  }
+  .finder-intro p{ color:var(--ink-dim); margin-bottom:16px; font-size:.98rem; max-width:480px; }
+  .finder-trust{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:14px;
+    margin-top:28px;
+  }
+  .finder-trust .trust-item{
+    border:1px solid var(--panel-edge);
+    border-radius:3px;
+    padding:14px 16px;
+    font-family:var(--mono);
+    font-size:.78rem;
+    color:var(--ink-dim);
+    line-height:1.5;
+  }
+  .finder-trust .trust-item strong{
+    display:block;
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:.92rem;
+    font-weight:600;
+    margin-bottom:2px;
+  }
+
+  .finder-card{
+    background:var(--panel);
+    border:1px solid var(--panel-edge);
+    border-radius:4px;
+    padding:36px;
+  }
+  .finder-card .finder-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:24px;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .finder-card .finder-head h3{
+    font-family:var(--display);
+    font-size:1.5rem;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+  }
+  .finder-card .finder-head span{
+    font-family:var(--mono);
+    font-size:.7rem;
+    color:var(--ink-dim);
+    letter-spacing:1px;
+  }
+  .finder-fields{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-bottom:22px;
+  }
+  .finder-field{ display:flex; flex-direction:column; gap:7px; }
+  .finder-field label{
+    font-family:var(--mono);
+    font-size:.68rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+  .finder-field select{
+    appearance:none;
+    background:var(--void);
+    border:1px solid var(--panel-edge);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:.92rem;
+    padding:12px 14px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:border-color .2s ease;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%233ff0e8'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+  }
+  .finder-field select:focus{ outline:none; border-color:var(--cyan); }
+  .finder-field select:disabled{ opacity:.4; cursor:not-allowed; }
+
+  .finder-submit{
+    width:100%;
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:.85rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:16px 0;
+    border-radius:2px;
+    border:none;
+    background:var(--cyan);
+    color:var(--void);
+    cursor:pointer;
+    transition:.2s;
+  }
+  .finder-submit:hover{ background:#7ffaf4; }
+  .finder-submit:disabled{ opacity:.4; cursor:not-allowed; }
+
+  .finder-note{
+    margin-top:16px;
+    font-family:var(--mono);
+    font-size:.72rem;
+    color:var(--ink-dim);
+    line-height:1.6;
+  }
+  .finder-note a{ color:var(--cyan); text-decoration:none; }
+  .finder-note a:hover{ text-decoration:underline; }
+
+  @media (max-width:880px){
+    .finder-grid{ grid-template-columns:1fr; gap:36px; }
+    .finder-fields{ grid-template-columns:1fr; }
+    .finder-trust{ grid-template-columns:1fr; }
+  }
+
   /* ===== Showcase ===== */
   .showcase{
     display:grid;
@@ -652,6 +793,86 @@
   </svg>
 </div>
 
+<!-- Vehicle Finder / Viezu partner -->
+<section id="find-vehicle">
+  <div class="finder-grid">
+    <div class="finder-intro reveal">
+      <div class="badge-row">
+        <img src="assets/logo-icon.png" alt="">
+        <span class="partner-tag">Authorised VIEZU Dealer</span>
+      </div>
+      <h2 style="font-family:var(--display);font-size:clamp(2rem,4.5vw,3.2rem);text-transform:uppercase;line-height:1.05;margin-bottom:18px;">
+        Real files.<br><span class="accent" style="color:var(--cyan);">Proper support.</span>
+      </h2>
+      <p>As an authorised VIEZU dealer, every remap we write is backed by VIEZU's tuning file library and technical support — the same network used by over 1,250 dealers worldwide. That means tested files for your exact vehicle, not a guess.</p>
+      <p>Find your vehicle below and we'll take you straight to VIEZU's file finder for your make and model — then come back to us to get it booked in.</p>
+
+      <div class="finder-trust">
+        <div class="trust-item"><strong>30-Day Guarantee</strong>Money-back on remap files</div>
+        <div class="trust-item"><strong>Quality Assured</strong>Tested ECU remaps</div>
+        <div class="trust-item"><strong>Custom Builds</strong>Tailored to your setup</div>
+        <div class="trust-item"><strong>1,250+ Dealers</strong>Trusted global network</div>
+      </div>
+    </div>
+
+    <div class="finder-card reveal">
+      <div class="finder-head">
+        <h3>Find Your Vehicle</h3>
+        <span>Powered by VIEZU</span>
+      </div>
+
+      <form id="vehicleFinderForm">
+        <div class="finder-fields">
+          <div class="finder-field" style="grid-column:1 / -1;">
+            <label for="vf-type">Vehicle Type</label>
+            <select id="vf-type" required>
+              <option value="">Select type</option>
+              <option value="cars">Cars</option>
+              <option value="vans">Vans</option>
+              <option value="hgv-tuning">HGV</option>
+              <option value="motorhomes">Motorhomes</option>
+              <option value="bike-tuning">Bike</option>
+              <option value="marine">Marine</option>
+              <option value="agriculture-tuning">Agriculture / Construction</option>
+            </select>
+          </div>
+          <div class="finder-field">
+            <label for="vf-make">Make</label>
+            <select id="vf-make" disabled>
+              <option value="">Select make</option>
+            </select>
+          </div>
+          <div class="finder-field">
+            <label for="vf-fuel">Fuel Type</label>
+            <select id="vf-fuel" disabled>
+              <option value="">Select fuel</option>
+              <option value="petrol">Petrol</option>
+              <option value="diesel">Diesel</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="electric">Electric</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="finder-submit" id="vf-submit" disabled>Find My Vehicle →</button>
+      </form>
+
+      <div class="finder-note">
+        Selecting a vehicle takes you to VIEZU's file finder for your type, make and fuel — the same database we use to source your remap. Once you've found your file, give us a call to get it booked in at BT Garage.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 1440 64" preserveAspectRatio="none">
+    <line x1="0" y1="32" x2="1440" y2="32" stroke="#1a2228" stroke-width="1"/>
+    <polyline points="700,0 720,32 700,64" fill="none" stroke="#3ff0e8" stroke-width="2"/>
+    <polyline points="715,0 735,32 715,64" fill="none" stroke="#3ff0e8" stroke-width="2" opacity="0.5"/>
+    <polyline points="730,0 750,32 730,64" fill="none" stroke="#3ff0e8" stroke-width="2" opacity="0.25"/>
+  </svg>
+</div>
+
 <!-- Showcase -->
 <section>
   <div class="section-head reveal">
@@ -802,6 +1023,120 @@
   } else {
     gauge.style.display = 'none';
   }
+
+  // ===== Vehicle Finder (VIEZU integration) =====
+  (function(){
+    const typeSelect = document.getElementById('vf-type');
+    const makeSelect = document.getElementById('vf-make');
+    const fuelSelect = document.getElementById('vf-fuel');
+    const submitBtn = document.getElementById('vf-submit');
+    const form = document.getElementById('vehicleFinderForm');
+
+    if(!typeSelect) return;
+
+    // Common makes per vehicle type, mapped to VIEZU's shop category slugs where known.
+    // Slug = null means we don't have a confirmed direct category, so we fall back
+    // to VIEZU's general type finder with the make passed as a search term.
+    const makesByType = {
+      cars: [
+        ["audi-tuning-remapping","Audi"],["bmw-tuning-remapping","BMW"],["ford-tuning-remapping","Ford"],
+        ["vw-tuning","Volkswagen"],["mercedes-tuning-specialists","Mercedes-Benz"],["seat","SEAT"],
+        ["vauxhall","Vauxhall"],["nissan","Nissan"],["toyota","Toyota"],["honda","Honda"],
+        ["mini","MINI"],["land-rover","Land Rover"],["jaguar-tuning-specialists","Jaguar"],
+        ["porsche","Porsche"],["skoda","Skoda"],["renault","Renault"],["peugeot","Peugeot"],
+        ["citroen-tuning-remapping","Citroën"],["fiat-tuning-remapping","Fiat"],["other","Other / Not Listed"]
+      ],
+      vans: [
+        ["ford-vans","Ford"],["vw-vans","Volkswagen"],["citroen-vans","Citroën"],["fiat-vans","Fiat"],
+        ["dacia-vans","Dacia"],["gmc-vans","GMC"],["chevrolet-vans","Chevrolet"],["other","Other / Not Listed"]
+      ],
+      "hgv-tuning": [
+        ["daf-truck","DAF"],["ford-truck","Ford"],["foton-truck","Foton"],["freightliner","Freightliner"],
+        ["other","Other / Not Listed"]
+      ],
+      motorhomes: [
+        ["ford-motorhomes","Ford"],["fiat-motorhomes","Fiat"],["citroen-motorhomes","Citroën"],
+        ["chevrolet-motorhomes","Chevrolet"],["other","Other / Not Listed"]
+      ],
+      "bike-tuning": [
+        ["bmw-motorrad","BMW Motorrad"],["ducati","Ducati"],["aprilia","Aprilia"],["derbi","Derbi"],
+        ["benelli","Benelli"],["other","Other / Not Listed"]
+      ],
+      marine: [
+        ["cummins","Cummins"],["deutz","Deutz"],["other","Other / Not Listed"]
+      ],
+      "agriculture-tuning": [
+        ["agco","AGCO"],["claas-tractors","Claas"],["fendt","Fendt"],["caterpillar","Caterpillar"],
+        ["other","Other / Not Listed"]
+      ]
+    };
+
+    function resetSelect(sel, placeholder){
+      sel.innerHTML = `<option value="">${placeholder}</option>`;
+      sel.disabled = true;
+    }
+
+    const fuelOptionsHTML = fuelSelect.innerHTML; // preserve original Petrol/Diesel/Hybrid/Electric options
+
+    typeSelect.addEventListener('change', function(){
+      const type = this.value;
+      resetSelect(makeSelect, 'Select make');
+      fuelSelect.innerHTML = fuelOptionsHTML;
+      fuelSelect.value = '';
+      fuelSelect.disabled = true;
+      submitBtn.disabled = true;
+
+      if(!type) return;
+
+      const makes = makesByType[type] || [["other","Other / Not Listed"]];
+      makes.forEach(([slug, label])=>{
+        const opt = document.createElement('option');
+        opt.value = slug;
+        opt.textContent = label;
+        makeSelect.appendChild(opt);
+      });
+      makeSelect.disabled = false;
+    });
+
+    makeSelect.addEventListener('change', function(){
+      fuelSelect.disabled = !this.value;
+      if(!this.value){
+        fuelSelect.innerHTML = fuelOptionsHTML;
+        fuelSelect.value = '';
+      }
+      submitBtn.disabled = true;
+    });
+
+    fuelSelect.addEventListener('change', function(){
+      submitBtn.disabled = !(makeSelect.value && fuelSelect.value);
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const type = typeSelect.value;
+      const makeSlug = makeSelect.value;
+      const makeLabel = makeSelect.options[makeSelect.selectedIndex]?.textContent || '';
+      const fuelLabel = fuelSelect.options[fuelSelect.selectedIndex]?.textContent || '';
+      const hasFuel = !!fuelSelect.value;
+
+      let url;
+      if(makeSlug && makeSlug !== 'other'){
+        // Try the known/likely VIEZU category path for this make.
+        const base = (type === 'cars') ? `https://viezu.com/shop/cars/${makeSlug}/` : `https://viezu.com/shop/${type}/${makeSlug}/`;
+        // VIEZU's fuel filter is a form control on that page, not a URL parameter,
+        // so pass the fuel type along as a query hint rather than pretending it filters automatically.
+        url = hasFuel ? `${base}?fuel=${encodeURIComponent(fuelSelect.value)}` : base;
+      } else if(makeSlug === 'other'){
+        // No specific make on file: search by fuel type within VIEZU's type finder, or just send them there.
+        url = hasFuel
+          ? `https://viezu.com/?s=${encodeURIComponent(fuelLabel)}&post_type=product`
+          : `https://viezu.com/your-vehicle/${type}/`;
+      } else {
+        url = `https://viezu.com/your-vehicle/${type}/`;
+      }
+      window.open(url, '_blank', 'noopener');
+    });
+  })();
 </script>
 
 </body>
