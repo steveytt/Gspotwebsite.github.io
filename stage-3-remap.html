@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 3 Remap | G-Spot Tuning & Mods — Wrexham</title>
+<meta name="description" content="Stage 3 ECU remap from G-Spot Tuning & Mods. Major hardware upgrades — turbos, internals — paired with a bespoke map for maximum performance.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/site.css">
+
+<style>
+  .page-hero{ position:relative; padding:160px 8vw 80px; overflow:hidden; }
+  .page-hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(255,68,41,.07), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(63,240,232,.02) 39px),
+      repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(63,240,232,.02) 39px);
+    pointer-events:none;
+  }
+  .page-hero-content{ position:relative; z-index:2; max-width:760px; }
+  .stage-tag{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--mono); font-size:.78rem; letter-spacing:2px;
+    color:var(--boost); text-transform:uppercase;
+    border:1px solid rgba(255,68,41,.35); padding:7px 16px; border-radius:2px;
+    margin-bottom:22px;
+  }
+  .page-hero h1{
+    font-family:var(--display);
+    font-size:clamp(2.6rem, 6.5vw, 5rem);
+    line-height:1.02; letter-spacing:.5px; text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .page-hero h1 .accent{ color:var(--boost); }
+  .page-hero p.lede{ font-size:1.08rem; color:var(--ink-dim); max-width:600px; margin-bottom:32px; }
+  .breadcrumb{
+    font-family:var(--mono); font-size:.75rem; letter-spacing:1.5px;
+    color:var(--ink-dim); text-transform:uppercase; margin-bottom:24px;
+  }
+  .breadcrumb a{ color:var(--cyan); text-decoration:none; }
+  .breadcrumb a:hover{ text-decoration:underline; }
+
+  .article{ max-width:760px; padding:0 8vw 40px; }
+  .article h2{
+    font-family:var(--display);
+    font-size:clamp(1.6rem, 3.2vw, 2.3rem);
+    text-transform:uppercase; letter-spacing:.5px;
+    margin:48px 0 18px; line-height:1.1;
+  }
+  .article h2:first-child{ margin-top:0; }
+  .article h2 .accent{ color:var(--boost); }
+  .article p{ color:var(--ink-dim); font-size:1rem; margin-bottom:18px; max-width:680px; }
+  .article strong{ color:var(--ink); font-weight:600; }
+
+  .spec-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--panel-edge); border:1px solid var(--panel-edge);
+    border-radius:4px; overflow:hidden; margin:28px 0 12px;
+  }
+  .spec-item{ background:var(--panel); padding:28px 24px; }
+  .spec-item .k{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:1.5px;
+    color:var(--boost); text-transform:uppercase; margin-bottom:10px;
+  }
+  .spec-item .v{ font-family:var(--display); font-size:1.3rem; text-transform:uppercase; }
+  .spec-item .v small{
+    display:block; font-family:var(--body); font-size:.78rem; color:var(--ink-dim);
+    font-weight:400; margin-top:6px; text-transform:none; letter-spacing:0;
+  }
+
+  .stage-pricebar{
+    display:flex; justify-content:space-between; align-items:center;
+    background:var(--panel); border:1px solid var(--panel-edge);
+    border-radius:4px; padding:28px 32px; margin:28px 0; flex-wrap:wrap; gap:18px;
+  }
+  .stage-pricebar .price{ font-family:var(--mono); font-size:1.8rem; font-weight:700; color:var(--boost); }
+  .stage-pricebar .price small{
+    display:block; font-family:var(--body); font-size:.78rem; color:var(--ink-dim); font-weight:400;
+  }
+
+  .checklist{ margin:20px 0 28px; }
+  .checklist li{
+    list-style:none; display:flex; gap:12px; align-items:baseline;
+    padding:12px 0; border-bottom:1px dashed var(--panel-edge);
+    color:var(--ink-dim); font-size:.96rem;
+  }
+  .checklist li:last-child{ border-bottom:none; }
+  .checklist li::before{ content:'»'; color:var(--boost); font-family:var(--mono); flex-shrink:0; }
+  .checklist li strong{ color:var(--ink); }
+
+  .warn-note{
+    border-left:3px solid var(--boost);
+    background:rgba(255,68,41,.06);
+    padding:18px 22px;
+    border-radius:0 3px 3px 0;
+    margin:24px 0;
+    font-size:.92rem;
+    color:var(--ink-dim);
+  }
+  .warn-note strong{ color:var(--ink); }
+
+  .stage-pager{
+    display:flex; justify-content:space-between; margin-top:56px; padding-top:28px;
+    border-top:1px solid var(--panel-edge); font-family:var(--mono); font-size:.82rem;
+  }
+  .stage-pager a{ color:var(--ink-dim); text-decoration:none; transition:color .2s; }
+  .stage-pager a:hover{ color:var(--cyan); }
+
+  .cta-band{
+    background:var(--panel); border:1px solid var(--panel-edge); border-radius:4px;
+    padding:40px; margin:48px 0 0; display:flex; justify-content:space-between;
+    align-items:center; flex-wrap:wrap; gap:24px;
+  }
+  .cta-band h3{ font-family:var(--display); font-size:1.6rem; text-transform:uppercase; letter-spacing:.5px; }
+  .cta-band h3 .accent{ color:var(--boost); }
+  .cta-band p{ color:var(--ink-dim); margin:6px 0 0; font-size:.92rem; }
+  .cta-band .btn-primary{ background:var(--boost); color:var(--void); }
+  .cta-band .btn-primary:hover{ background:#ff7a64; }
+
+  @media (max-width:880px){ .spec-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div class="gauge-wrap" id="gauge">
+  <svg viewBox="0 0 100 100">
+    <circle class="gauge-track" cx="50" cy="50" r="42" stroke-dasharray="198 264" stroke-dashoffset="0" transform="rotate(135 50 50)"/>
+    <circle class="gauge-fill" id="gaugeFill" cx="50" cy="50" r="42" stroke-dasharray="198 264" stroke-dashoffset="198" transform="rotate(135 50 50)"/>
+    <text x="50" y="48" class="gauge-needle-label" id="gaugeLabel">0%</text>
+    <text x="50" y="62" class="gauge-sub">SCROLL</text>
+  </svg>
+</div>
+
+<div class="topbar">
+  <a href="index.html" class="mark"><img src="assets/logo-icon.png" alt=""><span class="word">G<span>-</span>SPOT</span></a>
+  <nav class="topnav">
+    <a href="remapping.html">ECU Remapping</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a href="tel:07484163363" class="call">CALL · 07484 163363</a>
+</div>
+
+<header class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="remapping.html">ECU Remapping</a> / Stage 3</div>
+    <div class="stage-tag">Stage 03 — Full Hardware Build</div>
+    <h1>Maximum<br><span class="accent">performance.</span></h1>
+    <p class="lede">Our most serious tuning option. Stage 3 builds on Stage 1 and 2 with major hardware — upgraded turbos and internal components such as pistons — to extract the most your engine platform can handle.</p>
+    <a href="index.html#contact" class="btn btn-primary" style="background:var(--boost);color:var(--void);">Discuss a Stage 3 build →</a>
+  </div>
+</header>
+
+<article class="article reveal">
+
+  <div class="stage-pricebar">
+    <div>
+      <div class="price">Bespoke pricing<small>Scoped to your platform, goals and parts list</small></div>
+    </div>
+    <a href="index.html#contact" class="btn btn-ghost">Start the conversation →</a>
+  </div>
+
+  <h2>What a Stage 3 <span class="accent">build involves.</span></h2>
+  <p>Stage 3 is for drivers who've outgrown what software and supporting mods alone can deliver, and want to know what their platform is really capable of. It builds on everything in Stage 1 and 2, then adds major hardware: upgraded turbos, stronger internal components such as pistons and rods, and whatever else the specific goals of the build call for.</p>
+  <p>Because the hardware itself is being pushed beyond standard limits, the ECU map has to be built around that exact combination of parts — there's no generic Stage 3 file. We work through the spec with you first, scope what's needed, and write a bespoke tune once the hardware is in place.</p>
+
+  <div class="warn-note">
+    <strong>Worth knowing —</strong> given the scope of work, Stage 3 is a bigger investment than Stage 1 or 2, and pricing depends entirely on the parts and goals involved. We'll always talk through your spec properly before quoting.
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-item">
+      <div class="k">Hardware changes</div>
+      <div class="v">Major<small>Turbos, internals, supporting parts</small></div>
+    </div>
+    <div class="spec-item">
+      <div class="k">Best suited to</div>
+      <div class="v">Project builds<small>Drivers chasing maximum platform potential</small></div>
+    </div>
+    <div class="spec-item">
+      <div class="k">Mapping</div>
+      <div class="v">Fully bespoke<small>Written around your exact hardware</small></div>
+    </div>
+  </div>
+
+  <h2>How we approach a <span class="accent">Stage 3 build.</span></h2>
+  <ul class="checklist">
+    <li><strong>Goals first</strong> — we talk through what you actually want from the car before recommending any hardware.</li>
+    <li><strong>Parts scoped properly</strong> — turbos, internals and supporting components matched to the power level you're aiming for.</li>
+    <li><strong>Bespoke map, not a template</strong> — written specifically for your hardware combination, then tested before the car leaves us.</li>
+    <li><strong>Original file retained</strong> — your factory ECU software stays on record, the same as every other stage.</li>
+  </ul>
+
+  <h2>Is Stage 3 right for <span class="accent">you?</span></h2>
+  <p>If you're already running supporting mods from a Stage 2 tune and want to go further, or you're building a project car from the ground up, Stage 3 is where that conversation starts. It's a bigger commitment than the earlier stages, so we'd always recommend getting in touch first to talk through your goals, your budget, and what your specific platform can realistically handle.</p>
+
+  <div class="cta-band">
+    <div>
+      <h3>Let's talk through <span class="accent">your build.</span></h3>
+      <p>Every Stage 3 project starts with a conversation about what you actually want from the car.</p>
+    </div>
+    <a href="index.html#contact" class="btn btn-primary">Get in touch →</a>
+  </div>
+
+  <div class="stage-pager">
+    <a href="stage-2-remap.html">← Stage 2: Software + Mods</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="mark"><img src="assets/logo-icon.png" alt="">G-SPOT TUNING &amp; MODS</div>
+  <div>Remaps &amp; tuning · Inside BT Garage, Ruabon LL14 6HA</div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

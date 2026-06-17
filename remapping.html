@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECU Remapping Explained | G-Spot Tuning & Mods — Wrexham</title>
+<meta name="description" content="What ECU remapping actually does, how it's carried out, and which stage is right for your car. Stage 1, 2 and 3 remaps from G-Spot Tuning & Mods, Wrexham.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/site.css">
+
+<style>
+  /* ===== Page-specific: content article layout ===== */
+  .page-hero{
+    position:relative;
+    padding:160px 8vw 80px;
+    overflow:hidden;
+  }
+  .page-hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(63,240,232,.06), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(63,240,232,.02) 39px),
+      repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(63,240,232,.02) 39px);
+    pointer-events:none;
+  }
+  .page-hero-content{ position:relative; z-index:2; max-width:760px; }
+  .page-hero h1{
+    font-family:var(--display);
+    font-size:clamp(2.6rem, 6.5vw, 5rem);
+    line-height:1.02;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .page-hero h1 .accent{ color:var(--cyan); }
+  .page-hero p.lede{
+    font-size:1.08rem;
+    color:var(--ink-dim);
+    max-width:600px;
+  }
+  .breadcrumb{
+    font-family:var(--mono);
+    font-size:.75rem;
+    letter-spacing:1.5px;
+    color:var(--ink-dim);
+    text-transform:uppercase;
+    margin-bottom:24px;
+  }
+  .breadcrumb a{ color:var(--cyan); text-decoration:none; }
+  .breadcrumb a:hover{ text-decoration:underline; }
+
+  .article{
+    max-width:760px;
+    padding:0 8vw 40px;
+  }
+  .article h2{
+    font-family:var(--display);
+    font-size:clamp(1.6rem, 3.2vw, 2.3rem);
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    margin:56px 0 18px;
+    line-height:1.1;
+  }
+  .article h2:first-child{ margin-top:0; }
+  .article h2 .accent{ color:var(--cyan); }
+  .article p{
+    color:var(--ink-dim);
+    font-size:1rem;
+    margin-bottom:18px;
+    max-width:680px;
+  }
+  .article strong{ color:var(--ink); font-weight:600; }
+
+  /* Stage cards */
+  .stage-cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--panel-edge);
+    border:1px solid var(--panel-edge);
+    border-radius:4px;
+    overflow:hidden;
+    margin:28px 0 12px;
+  }
+  .stage-card{
+    background:var(--panel);
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    text-decoration:none;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .stage-card:hover{ background:#121a20; transform:translateY(-3px); }
+  .stage-card .stage-num{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:2px;
+    color:var(--cyan);
+    margin-bottom:14px;
+  }
+  .stage-card h3{
+    font-family:var(--display);
+    font-size:1.3rem;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin-bottom:10px;
+    letter-spacing:.5px;
+  }
+  .stage-card p{
+    color:var(--ink-dim);
+    font-size:.88rem;
+    margin-bottom:18px;
+    flex-grow:1;
+  }
+  .stage-card .stage-link{
+    font-family:var(--mono);
+    font-size:.75rem;
+    letter-spacing:1px;
+    color:var(--cyan);
+    text-transform:uppercase;
+  }
+  @media (max-width:880px){
+    .stage-cards{ grid-template-columns:1fr; }
+  }
+
+  /* FAQ */
+  .faq-item{
+    border-bottom:1px solid var(--panel-edge);
+    padding:22px 0;
+  }
+  .faq-item:first-child{ border-top:1px solid var(--panel-edge); }
+  .faq-item h4{
+    font-family:var(--body);
+    font-size:1.02rem;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .faq-item p{ margin-bottom:0; }
+
+  .cta-band{
+    background:var(--panel);
+    border:1px solid var(--panel-edge);
+    border-radius:4px;
+    padding:40px;
+    margin:48px 0 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .cta-band h3{
+    font-family:var(--display);
+    font-size:1.6rem;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+  }
+  .cta-band h3 .accent{ color:var(--cyan); }
+  .cta-band p{ color:var(--ink-dim); margin:6px 0 0; font-size:.92rem; }
+</style>
+</head>
+<body>
+
+<!-- Signature boost gauge -->
+<div class="gauge-wrap" id="gauge">
+  <svg viewBox="0 0 100 100">
+    <circle class="gauge-track" cx="50" cy="50" r="42" stroke-dasharray="198 264" stroke-dashoffset="0" transform="rotate(135 50 50)"/>
+    <circle class="gauge-fill" id="gaugeFill" cx="50" cy="50" r="42" stroke-dasharray="198 264" stroke-dashoffset="198" transform="rotate(135 50 50)"/>
+    <text x="50" y="48" class="gauge-needle-label" id="gaugeLabel">0%</text>
+    <text x="50" y="62" class="gauge-sub">SCROLL</text>
+  </svg>
+</div>
+
+<!-- Top bar -->
+<div class="topbar">
+  <a href="index.html" class="mark"><img src="assets/logo-icon.png" alt=""><span class="word">G<span>-</span>SPOT</span></a>
+  <nav class="topnav">
+    <a href="remapping.html">ECU Remapping</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a href="tel:07484163363" class="call">CALL · 07484 163363</a>
+</div>
+
+<header class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> / ECU Remapping</div>
+    <h1>ECU remapping,<br>explained <span class="accent">properly.</span></h1>
+    <p class="lede">More power, sharper response, and often better economy — without unnecessary risk to your engine. Here's what remapping actually does, how we carry it out, and which stage is right for your car.</p>
+  </div>
+</header>
+
+<article class="article reveal">
+
+  <h2>What is ECU <span class="accent">remapping?</span></h2>
+  <p>Every modern car runs on software. The Engine Control Unit decides how much fuel gets injected, when the spark plugs fire, and how much boost the turbo produces — and manufacturers set those parameters conservatively, since one ECU file has to suit a huge range of drivers, climates, and fuel qualities worldwide.</p>
+  <p>Remapping (also called chip tuning) means adjusting that software to suit your car, your driving style, and what you actually want from it. Done properly, the result is a noticeable gain in power, torque, and responsiveness, all while staying within safe limits for the engine.</p>
+
+  <h2>How does it <span class="accent">work?</span></h2>
+  <p>We connect to your car through the OBD port, read the existing ECU software, and write a new file tailored to your exact make, model and spec. Some newer or heavily protected ECUs can't be accessed this way, so we remove the unit and tune it on the bench instead — still entirely software-based, with no physical engine parts touched.</p>
+  <p>Before your car leaves us, we test the new map to confirm everything's working as it should, and we keep a copy of your original file on record so the remap can be reversed at any time.</p>
+
+  <h2>Choose your <span class="accent">stage.</span></h2>
+  <p>Not every car needs — or wants — the same level of tuning. We offer a staged approach so you can pick the level that suits your goals and your budget.</p>
+
+  <div class="stage-cards">
+    <a href="stage-1-remap.html" class="stage-card">
+      <div class="stage-num">STAGE 01</div>
+      <h3>Software Only</h3>
+      <p>Pure ECU tune, no hardware changes. Sharper response and more power on a standard car, fully reversible.</p>
+      <div class="stage-link">View Stage 1 →</div>
+    </a>
+    <a href="stage-2-remap.html" class="stage-card">
+      <div class="stage-num">STAGE 02</div>
+      <h3>Software + Supporting Mods</h3>
+      <p>The Stage 1 tune paired with an upgraded air filter and exhaust, letting the engine breathe more freely.</p>
+      <div class="stage-link">View Stage 2 →</div>
+    </a>
+    <a href="stage-3-remap.html" class="stage-card">
+      <div class="stage-num">STAGE 03</div>
+      <h3>Full Hardware Build</h3>
+      <p>Major hardware — turbos, internals — paired with a bespoke map to extract the most your platform can handle.</p>
+      <div class="stage-link">View Stage 3 →</div>
+    </a>
+  </div>
+
+  <h2>Is it <span class="accent">safe?</span></h2>
+  <p>Yes, when it's done properly. A poorly executed remap from an inexperienced tuner can cause real problems, which is exactly why it pays to use a specialist. Every remap we carry out is tailored to your specific vehicle, tested thoroughly, and backed by a copy of your original file in case you ever want to revert.</p>
+
+  <h2>Warranty &amp; <span class="accent">insurance.</span></h2>
+  <p>A remap doesn't automatically void your manufacturer warranty — that's a common misconception. It's treated like any other aftermarket modification, similar to fitting a tow bar or upgraded stereo. That said, a manufacturer can refuse a warranty claim if they can demonstrate the remap directly caused the fault.</p>
+  <p>We'd always recommend letting your insurer know if your car has been remapped. Most insurers classify it as a modification and it can affect your premium, but it's far better to be upfront than risk a claim being disputed later.</p>
+
+  <h2>Frequently asked <span class="accent">questions.</span></h2>
+  <div class="faq-item">
+    <h4>Will remapping damage my engine?</h4>
+    <p>Not when it's done correctly by an experienced tuner. The risk comes from cutting corners or going with an unproven provider, not from remapping itself.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Is it legal to remap my car?</h4>
+    <p>Yes — remapping is legal and safe as long as it's carried out correctly and the vehicle remains compliant with relevant emissions and safety standards.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Do diesel engines benefit from remapping?</h4>
+    <p>Very much so. Diesel engines typically respond well to remapping, often seeing strong gains in torque and throttle response alongside improved fuel efficiency.</p>
+  </div>
+  <div class="faq-item">
+    <h4>How do I know if a used car has already been remapped?</h4>
+    <p>The most reliable way is to connect a diagnostic tool to the OBD port and compare the current ECU settings against the original factory data.</p>
+  </div>
+
+  <div class="cta-band">
+    <div>
+      <h3>Ready to talk <span class="accent">remaps?</span></h3>
+      <p>Whether it's Stage 1 for everyday gains or a full Stage 3 build, we'll talk through the right option for your car.</p>
+    </div>
+    <a href="index.html#contact" class="btn btn-primary">Get in touch →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="mark"><img src="assets/logo-icon.png" alt="">G-SPOT TUNING &amp; MODS</div>
+  <div>Remaps &amp; tuning · Inside BT Garage, Ruabon LL14 6HA</div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
