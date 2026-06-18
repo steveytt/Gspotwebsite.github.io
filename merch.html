@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merch — G-Spot Tuning & Mods</title>
+<meta name="description" content="Official G-Spot Tuning & Mods clothing and accessories. T-shirts, hoodies, hats and more.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<!-- Signature boost gauge -->
+<div class="gauge-wrap" id="gauge">
+  <svg viewBox="0 0 100 100">
+    <circle class="gauge-track" cx="50" cy="50" r="42" stroke-dasharray="198 264" stroke-dashoffset="0" transform="rotate(135 50 50)"/>
+    <circle class="gauge-fill" id="gaugeFill" cx="50" cy="50" r="42" stroke-dasharray="198 264" stroke-dashoffset="198" transform="rotate(135 50 50)"/>
+    <text x="50" y="48" class="gauge-needle-label" id="gaugeLabel">0%</text>
+    <text x="50" y="62" class="gauge-sub">SCROLL</text>
+  </svg>
+</div>
+
+<!-- Top bar -->
+<div class="topbar">
+  <a href="index.html" class="mark"><img src="assets/logo-icon.png" alt=""><span class="word">G<span>-</span>SPOT</span></a>
+  <nav class="topnav">
+    <a href="remapping.html">ECU Remapping</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="merch.html" style="color:var(--cyan)">Merch</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a href="tel:01978532083" class="call">CALL · 01978 532083</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+<nav class="mobile-menu" id="mobile-menu">
+  <a href="remapping.html">ECU Remapping</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="merch.html">Merch</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tel:01978532083" style="color:var(--cyan)">CALL · 01978 532083</a>
+</nav>
+
+<!-- Page hero -->
+<header class="merch-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="merch-hero-content">
+    <div class="eyebrow">Official Gear</div>
+    <h1>WEAR THE<br><span class="accent">OBSESSION</span></h1>
+    <p>G-Spot Tuning &amp; Mods clothing and accessories. Built for people who push limits.</p>
+  </div>
+  <!-- Coming soon banner -->
+  <div class="merch-coming-soon">
+    <span class="cs-pill">DROPPING SOON</span>
+    <p>Stock is being finalised. Drop your email and we'll let you know the moment the shop goes live.</p>
+    <form class="cs-form" id="notifyForm">
+      <input type="email" placeholder="your@email.com" required id="notifyEmail">
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="cs-confirm" id="csConfirm" style="display:none">✓ You're on the list.</p>
+  </div>
+</header>
+
+<!-- Filter bar -->
+<div class="merch-filters reveal">
+  <button class="mf-btn active" data-filter="all">All</button>
+  <button class="mf-btn" data-filter="tshirt">T-Shirts</button>
+  <button class="mf-btn" data-filter="hoodie">Hoodies</button>
+  <button class="mf-btn" data-filter="hat">Hats &amp; Caps</button>
+  <button class="mf-btn" data-filter="accessory">Accessories</button>
+</div>
+
+<!-- Product grid -->
+<section class="merch-grid-wrap">
+  <div class="merch-grid">
+
+    <!-- T-SHIRTS -->
+    <div class="merch-card reveal" data-cat="tshirt">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+        <div class="merch-badge">NEW</div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">T-Shirt</div>
+        <div class="merch-name">G-Spot Logo Tee — Black</div>
+        <div class="merch-sizes">XS · S · M · L · XL · XXL</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="merch-card reveal" data-cat="tshirt">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">T-Shirt</div>
+        <div class="merch-name">Keep Pushing Limits Tee — White</div>
+        <div class="merch-sizes">XS · S · M · L · XL · XXL</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="merch-card reveal" data-cat="tshirt">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">T-Shirt</div>
+        <div class="merch-name">Stage 3 Tee — Boost Orange</div>
+        <div class="merch-sizes">S · M · L · XL · XXL</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOODIES -->
+    <div class="merch-card reveal" data-cat="hoodie">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+        <div class="merch-badge">NEW</div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">Hoodie</div>
+        <div class="merch-name">G-Spot Pullover Hoodie — Black</div>
+        <div class="merch-sizes">S · M · L · XL · XXL</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="merch-card reveal" data-cat="hoodie">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">Hoodie</div>
+        <div class="merch-name">Keep Pushing Limits Zip Hoodie</div>
+        <div class="merch-sizes">S · M · L · XL · XXL</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HATS -->
+    <div class="merch-card reveal" data-cat="hat">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+        <div class="merch-badge">NEW</div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">Hat</div>
+        <div class="merch-name">G-Spot Snapback — Black/Cyan</div>
+        <div class="merch-sizes">One Size</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="merch-card reveal" data-cat="hat">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">Hat</div>
+        <div class="merch-name">Tuning Dad Cap — Washed Black</div>
+        <div class="merch-sizes">One Size · Adjustable</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESSORIES -->
+    <div class="merch-card reveal" data-cat="accessory">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">Accessory</div>
+        <div class="merch-name">G-Spot Sticker Pack</div>
+        <div class="merch-sizes">5-piece set</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="merch-card reveal" data-cat="accessory">
+      <div class="merch-img">
+        <div class="merch-img-placeholder">
+          <span>IMAGE<br>COMING<br>SOON</span>
+        </div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">Accessory</div>
+        <div class="merch-name">Keyring — Logo Badge</div>
+        <div class="merch-sizes">One Size</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <button class="merch-btn" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="merch-cta-strip reveal">
+  <div class="merch-cta-inner">
+    <div>
+      <div class="eyebrow">Custom orders</div>
+      <h3>Want something <span class="accent">bespoke?</span></h3>
+      <p>Custom prints, club orders, or something else in mind — get in touch and we'll sort it.</p>
+    </div>
+    <a href="index.html#contact" class="btn btn-primary">Get in touch →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="mark"><img src="assets/logo-icon.png" alt="">G-SPOT TUNING &amp; MODS</div>
+  <div>Remaps &amp; tuning · Unit 2C, Advanced Park, Park Road, Rhosymedre, LL14 3YR</div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+  // Filter buttons
+  const filterBtns = document.querySelectorAll('.mf-btn');
+  const cards = document.querySelectorAll('.merch-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(card => {
+        card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
+      });
+    });
+  });
+
+  // Notify form
+  const form = document.getElementById('notifyForm');
+  if(form){
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      form.style.display = 'none';
+      document.getElementById('csConfirm').style.display = 'block';
+    });
+  }
+</script>
+</body>
+</html>
