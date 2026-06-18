@@ -26,15 +26,99 @@
   </svg>
 </div>
 
-<!-- Top bar -->
+<!-- Top bar: logo + status chip -->
 <div class="topbar">
-  <a href="index.html" class="mark"><img src="assets/logo-icon.png" alt=""><span class="word">G<span>-</span>SPOT</span></a>
-  <nav class="topnav">
-    <a href="remapping.html">ECU Remapping</a>
-    <a href="index.html#pricing">Pricing</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-  <a href="tel:07484163363" class="call">CALL · 07484 163363</a>
+  <a href="index.html" class="mark"><img src="assets/logo-icon.png" alt="G-Spot Tuning &amp; Mods"></a>
+  <div class="status-chip">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="full">RUABON, WREXHAM ·</span> <strong>OPEN NOW</strong>
+  </div>
+</div>
+
+<!-- Explore trigger -->
+<button class="explore-pill" id="explorePill" type="button" aria-expanded="false" aria-controls="exploreOverlay">
+  <span class="pill-label-open">Explore</span><span class="pill-label-close">Close</span>
+  <span class="ico">
+    <svg class="icon-bars" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <svg class="icon-close" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </span>
+</button>
+<a href="tel:07484163363" class="explore-call">CALL · 07484 163363</a>
+
+<!-- Full-screen explore overlay -->
+<div class="explore-overlay" id="exploreOverlay" inert>
+  <div class="explore-grid">
+
+    <div class="explore-main">
+      <a href="remapping.html" class="explore-card primary">
+        <div class="bg" style="background-image:url('assets/hero-skyline.jpg')"></div>
+        <div class="explore-card-body">
+          <span class="explore-card-tag">Education &amp; Stages</span>
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            ECU Remapping
+          </h3>
+          <p>What remapping is, how it works, and which stage suits your car — Stage 1 through Stage 3.</p>
+        </div>
+      </a>
+
+      <div class="explore-row">
+        <a href="index.html#pricing" class="explore-card">
+          <div class="bg" style="background-image:url('assets/m3-build-crop.jpg')"></div>
+          <div class="explore-card-body">
+            <span class="explore-card-tag">Dyno Sheet</span>
+            <h3>Pricing</h3>
+            <p>Stage 1 from £150, full package from £200.</p>
+          </div>
+        </a>
+        <a href="index.html#workshop" class="explore-card">
+          <div class="bg" style="background-image:url('assets/hero-skyline.jpg')"></div>
+          <div class="explore-card-body">
+            <span class="explore-card-tag">From The Workshop</span>
+            <h3>The Build</h3>
+            <p>Real cars, real maps — inside BT Garage, Ruabon.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="explore-side">
+      <div class="explore-social">
+        <a href="tel:07484163363" aria-label="Call G-Spot Tuning">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8a15.7 15.7 0 0 0 6.6 6.6l2.2-2.2a1.3 1.3 0 0 1 1.3-.3c1.3.4 2.7.7 4.1.7.7 0 1.3.6 1.3 1.3v3.6c0 .7-.6 1.3-1.3 1.3C10.6 21.8 2.2 13.4 2.2 2.3 2.2 1.6 2.8 1 3.5 1h3.6c.7 0 1.3.6 1.3 1.3 0 1.4.3 2.8.7 4.1.1.4 0 1-.3 1.3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="mailto:gspottuningandmods@gmail.com" aria-label="Email G-Spot Tuning">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 6l8.5 6.5L20.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=BT+Garage+Ruabon+LL14+6HA" target="_blank" rel="noopener" aria-label="Find us on the map">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+      </div>
+
+      <div class="explore-info-card">
+        <span class="eyebrow-sm">Authorised VIEZU Dealer</span>
+        <h4>Book Your Remap</h4>
+        <p>Stage 1 software tunes from £150. Custom maps and full builds available on request.</p>
+        <a href="index.html#contact" class="btn-primary" style="display:flex;">Get In Touch</a>
+      </div>
+
+      <div class="explore-quicklinks">
+        <a href="tel:07484163363">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8a15.7 15.7 0 0 0 6.6 6.6l2.2-2.2a1.3 1.3 0 0 1 1.3-.3c1.3.4 2.7.7 4.1.7.7 0 1.3.6 1.3 1.3v3.6c0 .7-.6 1.3-1.3 1.3C10.6 21.8 2.2 13.4 2.2 2.3 2.2 1.6 2.8 1 3.5 1h3.6c.7 0 1.3.6 1.3 1.3 0 1.4.3 2.8.7 4.1.1.4 0 1-.3 1.3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          Call
+        </a>
+        <a href="index.html#pricing">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12h16M4 7h16M4 17h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Pricing
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=BT+Garage+Ruabon+LL14+6HA" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+          Find Us
+        </a>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <!-- Hero -->
@@ -203,7 +287,7 @@
 </div>
 
 <!-- Showcase -->
-<section>
+<section id="workshop">
   <div class="section-head reveal">
     <div class="eyebrow">From the workshop</div>
     <h2>Keep pushing <span class="accent">limits.</span></h2>
