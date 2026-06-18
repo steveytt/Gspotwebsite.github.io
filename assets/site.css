@@ -1053,3 +1053,44 @@
 @media(max-width:400px){
   .merch-grid{ grid-template-columns:1fr; }
 }
+
+/* ===== Merch product photos ===== */
+.merch-photo{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center;
+  opacity:0;
+  transition:opacity .35s ease;
+}
+.merch-photo.active{ opacity:1; }
+
+/* Front/back image toggle */
+.merch-img-switch{ position:relative; }
+.merch-img-toggle{
+  position:absolute;
+  bottom:10px; left:10px;
+  display:flex;
+  gap:6px;
+  z-index:3;
+}
+.mit-btn{
+  font-family:var(--mono);
+  font-size:.62rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  padding:5px 10px;
+  border-radius:2px;
+  border:1px solid rgba(63,240,232,.4);
+  background:rgba(10,14,18,.75);
+  color:var(--ink-dim);
+  cursor:pointer;
+  transition:all .2s;
+  backdrop-filter:blur(4px);
+}
+.mit-btn.active,
+.mit-btn:hover{
+  background:var(--cyan);
+  color:var(--void);
+  border-color:var(--cyan);
+}
