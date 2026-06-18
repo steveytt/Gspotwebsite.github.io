@@ -43,3 +43,31 @@
   } else {
     gauge.style.display = 'none';
   }
+
+  // Explore overlay — full-screen nav
+  const explorePill = document.getElementById('explorePill');
+  const exploreOverlay = document.getElementById('exploreOverlay');
+
+  if(explorePill && exploreOverlay){
+    function openExplore(){
+      document.body.classList.add('nav-open');
+      explorePill.setAttribute('aria-expanded', 'true');
+      exploreOverlay.removeAttribute('inert');
+    }
+    function closeExplore(){
+      document.body.classList.remove('nav-open');
+      explorePill.setAttribute('aria-expanded', 'false');
+      exploreOverlay.setAttribute('inert', '');
+    }
+    explorePill.addEventListener('click', ()=>{
+      const isOpen = document.body.classList.contains('nav-open');
+      isOpen ? closeExplore() : openExplore();
+    });
+    exploreOverlay.addEventListener('click', (e)=>{
+      if(e.target === exploreOverlay){ closeExplore(); }
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && document.body.classList.contains('nav-open')){ closeExplore(); }
+    });
+    closeExplore();
+  }
