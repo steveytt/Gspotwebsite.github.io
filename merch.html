@@ -136,21 +136,46 @@
     </div>
 -->
 
-    <!-- HOODIES -->
+    <!-- JACKET -->
     <div class="merch-card reveal" data-cat="hoodie">
       <div class="merch-img merch-img-switch" id="hoodieCard">
-        <img src="assets/hoodie-back.jpg" alt="G-Spot Hoodie back print" class="merch-photo active" id="hoodieBack">
-        <img src="assets/hoodie-front.jpg" alt="G-Spot Hoodie front print" class="merch-photo" id="hoodieFront">
+        <img src="assets/hoodie-back.jpg" alt="G-Spot Cloudveil Jacket back print" class="merch-photo active" id="jacketBack">
+        <img src="assets/hoodie-front.jpg" alt="G-Spot Cloudveil Jacket front print" class="merch-photo" id="jacketFront">
         <div class="merch-badge">NEW</div>
         <div class="merch-img-toggle">
-          <button class="mit-btn active" onclick="switchHoodieImg('back')">Back</button>
-          <button class="mit-btn" onclick="switchHoodieImg('front')">Front</button>
+          <button class="mit-btn active" onclick="switchProductImg('jacket','back')">Back</button>
+          <button class="mit-btn" onclick="switchProductImg('jacket','front')">Front</button>
         </div>
       </div>
       <div class="merch-info">
-        <div class="merch-cat">Hoodie</div>
-        <div class="merch-name">G-Spot Pullover Hoodie — Charcoal</div>
-        <div class="merch-sizes">S · M · L · XL · XXL</div>
+        <div class="merch-cat">Jacket</div>
+        <div class="merch-name">G-Spot Cloudveil Jacket</div>
+        <p class="merch-desc">Fleece-lined jacket with toggle cords at the waist and neck for a customisable fit. Iconic G-Spot logo printed front and back.</p>
+        <div class="merch-sizes">Colours: Black · Grey · Blue</div>
+        <div class="merch-sizes">Sizes: M · L · XL · XXL</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <a href="https://www.facebook.com/share/1CkKscVUsP/" target="_blank" rel="noopener" class="merch-btn">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GILET -->
+    <div class="merch-card reveal" data-cat="hoodie">
+      <div class="merch-img merch-img-switch">
+        <img src="assets/gilet-front.jpg" alt="G-Spot Gilet front" class="merch-photo active" id="giletFront">
+        <img src="assets/gilet-back.jpg" alt="G-Spot Gilet back print" class="merch-photo" id="giletBack">
+        <div class="merch-badge">NEW</div>
+        <div class="merch-img-toggle">
+          <button class="mit-btn active" onclick="switchProductImg('gilet','front')">Front</button>
+          <button class="mit-btn" onclick="switchProductImg('gilet','back')">Back</button>
+        </div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">Gilet</div>
+        <div class="merch-name">G-Spot Printed Gilet</div>
+        <p class="merch-desc">Sleeveless gilet lined with soft fleece for warmth and comfort, with adjustable toggles at the neck and waist for a customisable fit. G-Spot logo printed on the back.</p>
+        <div class="merch-sizes">Sizes: S · M · L · XL</div>
         <div class="merch-footer">
           <div class="merch-price">£TBC</div>
           <a href="https://www.facebook.com/share/1CkKscVUsP/" target="_blank" rel="noopener" class="merch-btn">Order Now</a>
@@ -215,6 +240,22 @@
       </div>
     </div>
 
+    <div class="merch-card reveal" data-cat="accessory">
+      <div class="merch-img">
+        <img src="assets/window-sticker.jpg" alt="G-Spot window sticker" class="merch-photo active">
+        <div class="merch-badge">NEW</div>
+      </div>
+      <div class="merch-info">
+        <div class="merch-cat">Accessory</div>
+        <div class="merch-name">G-Spot Window Sticker</div>
+        <div class="merch-sizes">Weatherproof vinyl · One Size</div>
+        <div class="merch-footer">
+          <div class="merch-price">£TBC</div>
+          <a href="https://www.facebook.com/share/1CkKscVUsP/" target="_blank" rel="noopener" class="merch-btn">Order Now</a>
+        </div>
+      </div>
+    </div>
+
     <!--
 <div class="merch-card reveal" data-cat="accessory">
       <div class="merch-img">
@@ -270,22 +311,16 @@
     });
   });
 
-  // Hoodie front/back image switcher
-  function switchHoodieImg(view){
-    const back = document.getElementById('hoodieBack');
-    const front = document.getElementById('hoodieFront');
-    const btns = document.querySelectorAll('.mit-btn');
-    if(view === 'back'){
-      back.classList.add('active');
-      front.classList.remove('active');
-      btns[0].classList.add('active');
-      btns[1].classList.remove('active');
-    } else {
-      front.classList.add('active');
-      back.classList.remove('active');
-      btns[1].classList.add('active');
-      btns[0].classList.remove('active');
-    }
+  // Product front/back image switcher (scoped per card, ID prefix = product key)
+  function switchProductImg(product, view){
+    const imgA = document.getElementById(product + (view === 'front' ? 'Back' : 'Front'));
+    const imgB = document.getElementById(product + (view === 'front' ? 'Front' : 'Back'));
+    const card = imgB.closest('.merch-img-switch');
+    const btns = card.querySelectorAll('.mit-btn');
+    imgB.classList.add('active');
+    imgA.classList.remove('active');
+    btns.forEach(b => b.classList.remove('active'));
+    [...btns].find(b => b.getAttribute('onclick').includes(`'${view}'`)).classList.add('active');
   }
 </script>
 </body>
