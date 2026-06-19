@@ -313,6 +313,33 @@
         </div>
       </div>
     </div>
+
+    <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-head">
+        <div class="eyebrow">Send a message</div>
+        <p>Prefer to write it down? Drop us the details and we'll get back to you.</p>
+      </div>
+      <div class="form-row">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-phone">Phone <small>(optional)</small></label>
+        <input type="tel" id="cf-phone" name="phone">
+      </div>
+      <div class="form-row">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" required></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="New enquiry from G-Spot Tuning website">
+      <button type="submit" class="btn btn-primary">Send message →</button>
+      <p class="form-confirm" id="formConfirm" style="display:none">✓ Message sent — we'll be in touch soon.</p>
+      <p class="form-error" id="formError" style="display:none">Something went wrong — please call or message us on Facebook instead.</p>
+    </form>
   </div>
 </section>
 
@@ -440,6 +467,43 @@
       window.open(url, '_blank', 'noopener');
     });
   })();
+</script>
+
+<script>
+  // ===== Contact form (Formspree AJAX submit) =====
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm){
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const confirmMsg = document.getElementById('formConfirm');
+      const errorMsg = document.getElementById('formError');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      errorMsg.style.display = 'none';
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if(response.ok){
+          contactForm.reset();
+          contactForm.style.display = 'none';
+          confirmMsg.style.display = 'block';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch(err) {
+        errorMsg.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message →';
+      }
+    });
+  }
 </script>
 
 </body>
