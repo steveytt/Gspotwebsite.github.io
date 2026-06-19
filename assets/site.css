@@ -663,9 +663,16 @@
   .contact-wrap{
     display:grid;
     grid-template-columns:1.1fr 1fr;
+    grid-template-areas:
+      "cta card"
+      "form form";
     gap:64px;
     align-items:start;
   }
+  .contact-cta{ grid-area:cta; }
+  .contact-card{ grid-area:card; }
+  .contact-form{ grid-area:form; }
+
   .contact-card{
     border:1px solid var(--panel-edge);
     background:var(--panel);
@@ -717,8 +724,81 @@
   .contact-cta .btn-primary{ background:var(--boost); color:var(--void); }
   .contact-cta .btn-primary:hover{ background:#ff7a64; }
 
+  /* Contact form */
+  .contact-form{
+    border:1px solid var(--panel-edge);
+    background:var(--panel);
+    border-radius:4px;
+    padding:40px;
+    max-width:640px;
+  }
+  .form-head{ margin-bottom:28px; }
+  .form-head .eyebrow{ margin-bottom:14px; }
+  .form-head p{ color:var(--ink-dim); }
+  .form-row{
+    margin-bottom:20px;
+  }
+  .form-row label{
+    display:block;
+    font-family:var(--mono);
+    font-size:.7rem;
+    letter-spacing:2px;
+    color:var(--ink-dim);
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .form-row label small{ text-transform:none; letter-spacing:0; }
+  .form-row input,
+  .form-row textarea{
+    width:100%;
+    font-family:var(--body);
+    font-size:.95rem;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--panel-edge);
+    color:var(--ink);
+    padding:12px 14px;
+    border-radius:2px;
+    outline:none;
+    transition:border .2s, background .2s;
+    resize:vertical;
+  }
+  .form-row input:focus,
+  .form-row textarea:focus{
+    border-color:var(--cyan);
+    background:rgba(63,240,232,.03);
+  }
+  .contact-form .btn-primary{
+    background:var(--cyan);
+    color:var(--void);
+    border:none;
+  }
+  .contact-form .btn-primary:hover{ background:#7ffaf4; }
+  .contact-form button:disabled{ opacity:.6; cursor:wait; }
+  .form-confirm{
+    font-family:var(--mono);
+    font-size:.85rem;
+    color:var(--cyan);
+    letter-spacing:.5px;
+    margin-top:18px;
+  }
+  .form-error{
+    font-family:var(--mono);
+    font-size:.85rem;
+    color:var(--boost);
+    letter-spacing:.5px;
+    margin-top:18px;
+  }
+
   @media (max-width:880px){
-    .contact-wrap{ grid-template-columns:1fr; gap:48px; }
+    .contact-wrap{
+      grid-template-columns:1fr;
+      grid-template-areas:
+        "cta"
+        "card"
+        "form";
+      gap:48px;
+    }
+    .contact-form{ padding:28px; max-width:none; }
   }
 
   /* ===== Footer ===== */
