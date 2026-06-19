@@ -290,6 +290,12 @@
   </div>
 </section>
 
+<!-- Image lightbox -->
+<div class="merch-lightbox" id="lightbox">
+  <button class="merch-lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
 <footer>
   <div class="mark"><img src="assets/logo-icon.png" alt="">G-SPOT TUNING &amp; MODS</div>
   <div>Remaps &amp; tuning · Unit 2C, Advanced Park, Park Road, Rhosymedre, LL14 3YR</div>
@@ -322,6 +328,27 @@
     btns.forEach(b => b.classList.remove('active'));
     [...btns].find(b => b.getAttribute('onclick').includes(`'${view}'`)).classList.add('active');
   }
+
+  // Image lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('.merch-img').forEach(imgWrap => {
+    imgWrap.addEventListener('click', (e) => {
+      if(e.target.closest('.mit-btn')) return; // don't open on toggle clicks
+      const visiblePhoto = imgWrap.querySelector('.merch-photo.active') || imgWrap.querySelector('img');
+      if(!visiblePhoto) return;
+      lightboxImg.src = visiblePhoto.src;
+      lightboxImg.alt = visiblePhoto.alt;
+      lightbox.classList.add('open');
+    });
+  });
+
+  function closeLightbox(){ lightbox.classList.remove('open'); }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
