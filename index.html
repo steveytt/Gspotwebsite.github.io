@@ -153,6 +153,16 @@
         <span>Powered by VIEZU</span>
       </div>
 
+      <div class="finder-simple">
+        <p>Use VIEZU's vehicle portal to find the remap file for your exact make, model and fuel type — the same database we use to source every file we flash.</p>
+        <a href="https://viezu.com/dealer?id=8620005ac78d8257435d490058c643dd" target="_blank" rel="noopener" class="btn btn-primary finder-submit-btn">Find My Vehicle on VIEZU →</a>
+      </div>
+
+      <div class="finder-note">
+        Opens VIEZU's dealer portal in a new tab — select your vehicle there, then come back and give us a call to get it booked in at our unit in Rhosymedre.
+      </div>
+
+      <!-- VEHICLE SELECTOR — kept for future pre-population if VIEZU support URL params
       <form id="vehicleFinderForm">
         <div class="finder-fields">
           <div class="finder-field" style="grid-column:1 / -1;">
@@ -193,13 +203,9 @@
             <input type="text" id="vf-variant" placeholder="e.g. 2018, 2.0 TDI, M Sport" disabled>
           </div>
         </div>
-
         <button type="submit" class="finder-submit" id="vf-submit" disabled>Find My Vehicle →</button>
       </form>
-
-      <div class="finder-note">
-        Selecting your vehicle opens VIEZU's dealer portal with your details pre-filled — the same database we use to source your remap file. Once you've found your vehicle, give us a call to get it booked in at our unit in Rhosymedre.
-      </div>
+      END VEHICLE SELECTOR -->
     </div>
   </div>
 </section>
@@ -349,6 +355,8 @@
 </footer>
 
 <script src="assets/site.js"></script>
+
+<!-- VEHICLE FINDER JS — kept for future use if VIEZU support URL pre-population
 <script>
   // ===== Vehicle Finder (VIEZU integration) =====
 
@@ -466,6 +474,7 @@
     });
   })();
 </script>
+END VEHICLE FINDER JS -->
 
 <script>
   // ===== Contact form (Formspree AJAX submit) =====
