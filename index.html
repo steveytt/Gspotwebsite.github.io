@@ -127,97 +127,94 @@
 
 <!-- Vehicle Finder / Viezu partner -->
 <section id="find-vehicle">
-  <div class="finder-grid">
-    <div class="finder-intro reveal">
-      <div class="badge-row">
-        <img src="assets/logo-icon.png" alt="">
-        <span class="partner-tag">Authorised VIEZU Dealer</span>
-      </div>
-      <h2 style="font-family:var(--display);font-size:clamp(2rem,4.5vw,3.2rem);text-transform:uppercase;line-height:1.05;margin-bottom:18px;">
-        Real files.<br><span class="accent" style="color:var(--cyan);">Proper support.</span>
-      </h2>
-      <p>As an authorised VIEZU dealer, every remap we write is backed by VIEZU's tuning file library and technical support — the same network used by over 1,250 dealers worldwide. That means tested files for your exact vehicle, not a guess.</p>
-      <p>Find your vehicle below and we'll take you straight to VIEZU's file finder for your make and model — then come back to us to get it booked in.</p>
+  <div class="finder-intro reveal">
+    <div class="badge-row">
+      <img src="assets/logo-icon.png" alt="">
+      <span class="partner-tag">Authorised VIEZU Dealer</span>
+    </div>
+    <h2 style="font-family:var(--display);font-size:clamp(2rem,4.5vw,3.2rem);text-transform:uppercase;line-height:1.05;margin-bottom:18px;">
+      Real files.<br><span class="accent" style="color:var(--cyan);">Proper support.</span>
+    </h2>
+    <p>As an authorised VIEZU dealer, every remap we write is backed by VIEZU's tuning file library and technical support — the same network used by over 1,250 dealers worldwide. That means tested files for your exact vehicle, not a guess.</p>
 
-      <div class="finder-trust">
-        <div class="trust-item"><strong>30-Day Guarantee</strong>Money-back on remap files</div>
-        <div class="trust-item"><strong>Quality Assured</strong>Tested ECU remaps</div>
-        <div class="trust-item"><strong>Custom Builds</strong>Tailored to your setup</div>
-        <div class="trust-item"><strong>1,250+ Dealers</strong>Trusted global network</div>
+    <div class="finder-trust">
+      <div class="trust-item"><strong>30-Day Guarantee</strong>Money-back on remap files</div>
+      <div class="trust-item"><strong>Quality Assured</strong>Tested ECU remaps</div>
+      <div class="trust-item"><strong>Custom Builds</strong>Tailored to your setup</div>
+      <div class="trust-item"><strong>1,250+ Dealers</strong>Trusted global network</div>
+    </div>
+  </div>
+
+  <div class="finder-card finder-card--full reveal">
+    <div class="finder-head">
+      <h3>Find Your Vehicle</h3>
+      <span>Powered by VIEZU</span>
+    </div>
+
+    <div class="finder-simple">
+      <div class="viezu-iframe-wrap">
+        <iframe
+          src="https://viezu.com/dealer?id=8620005ac78d8257435d490058c643dd"
+          title="VIEZU Vehicle Finder"
+          id="viezuFrame"
+          loading="lazy"
+          allow="same-origin">
+        </iframe>
+        <div class="iframe-fallback" id="iframeFallback" style="display:none">
+          <p>The VIEZU vehicle finder couldn't load here — open it directly instead.</p>
+          <a href="https://viezu.com/dealer?id=8620005ac78d8257435d490058c643dd" target="_blank" rel="noopener" class="finder-submit-btn">Find My Vehicle on VIEZU →</a>
+        </div>
       </div>
     </div>
 
-    <div class="finder-card reveal">
-      <div class="finder-head">
-        <h3>Find Your Vehicle</h3>
-        <span>Powered by VIEZU</span>
-      </div>
-
-      <div class="finder-simple">
-        <div class="viezu-iframe-wrap">
-          <iframe
-            src="https://viezu.com/dealer?id=8620005ac78d8257435d490058c643dd"
-            title="VIEZU Vehicle Finder"
-            id="viezuFrame"
-            loading="lazy"
-            allow="same-origin">
-          </iframe>
-          <div class="iframe-fallback" id="iframeFallback" style="display:none">
-            <p>The VIEZU vehicle finder couldn't load here — open it directly instead.</p>
-            <a href="https://viezu.com/dealer?id=8620005ac78d8257435d490058c643dd" target="_blank" rel="noopener" class="finder-submit-btn">Find My Vehicle on VIEZU →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="finder-note">
-        Select your vehicle using the VIEZU tool above — once you've found your file, give us a call or drop us a message to get it booked in at our unit in Rhosymedre.
-      </div>
-
-      <!-- VEHICLE SELECTOR — kept for future pre-population if VIEZU support URL params
-      <form id="vehicleFinderForm">
-        <div class="finder-fields">
-          <div class="finder-field" style="grid-column:1 / -1;">
-            <label for="vf-type">Vehicle Type</label>
-            <select id="vf-type" required>
-              <option value="">Select type</option>
-              <option value="cars">Cars</option>
-              <option value="vans">Vans</option>
-              <option value="hgv-tuning">HGV</option>
-              <option value="motorhomes">Motorhomes</option>
-              <option value="bike-tuning">Bike</option>
-              <option value="marine">Marine</option>
-              <option value="agriculture-tuning">Agriculture / Construction</option>
-            </select>
-          </div>
-          <div class="finder-field">
-            <label for="vf-make">Make</label>
-            <select id="vf-make" disabled>
-              <option value="">Select make</option>
-            </select>
-          </div>
-          <div class="finder-field">
-            <label for="vf-fuel">Fuel Type</label>
-            <select id="vf-fuel" disabled>
-              <option value="">Select fuel</option>
-              <option value="petrol">Petrol</option>
-              <option value="diesel">Diesel</option>
-              <option value="hybrid">Hybrid</option>
-              <option value="electric">Electric</option>
-            </select>
-          </div>
-          <div class="finder-field">
-            <label for="vf-model">Model <span style="opacity:.6;">(optional)</span></label>
-            <input type="text" id="vf-model" placeholder="e.g. 3 Series, Golf, Ranger" disabled>
-          </div>
-          <div class="finder-field">
-            <label for="vf-variant">Year / Variant <span style="opacity:.6;">(optional)</span></label>
-            <input type="text" id="vf-variant" placeholder="e.g. 2018, 2.0 TDI, M Sport" disabled>
-          </div>
-        </div>
-        <button type="submit" class="finder-submit" id="vf-submit" disabled>Find My Vehicle →</button>
-      </form>
-      END VEHICLE SELECTOR -->
+    <div class="finder-note">
+      Select your vehicle using the VIEZU tool above — once you've found your file, give us a call or drop us a message to get it booked in at our unit in Rhosymedre.
     </div>
+
+    <!-- VEHICLE SELECTOR — kept for future pre-population if VIEZU support URL params
+    <form id="vehicleFinderForm">
+      <div class="finder-fields">
+        <div class="finder-field" style="grid-column:1 / -1;">
+          <label for="vf-type">Vehicle Type</label>
+          <select id="vf-type" required>
+            <option value="">Select type</option>
+            <option value="cars">Cars</option>
+            <option value="vans">Vans</option>
+            <option value="hgv-tuning">HGV</option>
+            <option value="motorhomes">Motorhomes</option>
+            <option value="bike-tuning">Bike</option>
+            <option value="marine">Marine</option>
+            <option value="agriculture-tuning">Agriculture / Construction</option>
+          </select>
+        </div>
+        <div class="finder-field">
+          <label for="vf-make">Make</label>
+          <select id="vf-make" disabled>
+            <option value="">Select make</option>
+          </select>
+        </div>
+        <div class="finder-field">
+          <label for="vf-fuel">Fuel Type</label>
+          <select id="vf-fuel" disabled>
+            <option value="">Select fuel</option>
+            <option value="petrol">Petrol</option>
+            <option value="diesel">Diesel</option>
+            <option value="hybrid">Hybrid</option>
+            <option value="electric">Electric</option>
+          </select>
+        </div>
+        <div class="finder-field">
+          <label for="vf-model">Model <span style="opacity:.6;">(optional)</span></label>
+          <input type="text" id="vf-model" placeholder="e.g. 3 Series, Golf, Ranger" disabled>
+        </div>
+        <div class="finder-field">
+          <label for="vf-variant">Year / Variant <span style="opacity:.6;">(optional)</span></label>
+          <input type="text" id="vf-variant" placeholder="e.g. 2018, 2.0 TDI, M Sport" disabled>
+        </div>
+      </div>
+      <button type="submit" class="finder-submit" id="vf-submit" disabled>Find My Vehicle →</button>
+    </form>
+    END VEHICLE SELECTOR -->
   </div>
 </section>
 
