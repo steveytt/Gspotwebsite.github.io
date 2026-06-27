@@ -154,12 +154,23 @@
       </div>
 
       <div class="finder-simple">
-        <p>Use VIEZU's vehicle portal to find the remap file for your exact make, model and fuel type — the same database we use to source every file we flash.</p>
-        <a href="https://viezu.com/dealer?id=8620005ac78d8257435d490058c643dd" target="_blank" rel="noopener" class="btn btn-primary finder-submit-btn">Find My Vehicle on VIEZU →</a>
+        <div class="viezu-iframe-wrap">
+          <iframe
+            src="https://viezu.com/dealer?id=8620005ac78d8257435d490058c643dd"
+            title="VIEZU Vehicle Finder"
+            id="viezuFrame"
+            loading="lazy"
+            allow="same-origin">
+          </iframe>
+          <div class="iframe-fallback" id="iframeFallback" style="display:none">
+            <p>The VIEZU vehicle finder couldn't load here — open it directly instead.</p>
+            <a href="https://viezu.com/dealer?id=8620005ac78d8257435d490058c643dd" target="_blank" rel="noopener" class="finder-submit-btn">Find My Vehicle on VIEZU →</a>
+          </div>
+        </div>
       </div>
 
       <div class="finder-note">
-        Opens VIEZU's dealer portal in a new tab — select your vehicle there, then come back and give us a call to get it booked in at our unit in Rhosymedre.
+        Select your vehicle using the VIEZU tool above — once you've found your file, give us a call or drop us a message to get it booked in at our unit in Rhosymedre.
       </div>
 
       <!-- VEHICLE SELECTOR — kept for future pre-population if VIEZU support URL params
@@ -477,6 +488,28 @@
 END VEHICLE FINDER JS -->
 
 <script>
+  // ===== Viezu iframe fallback detection =====
+  const viezuFrame = document.getElementById('viezuFrame');
+  const iframeFallback = document.getElementById('iframeFallback');
+  if(viezuFrame && iframeFallback){
+    viezuFrame.addEventListener('load', function(){
+      try {
+        // If the frame loaded but is blank or redirected, show fallback
+        const loc = viezuFrame.contentWindow.location.href;
+        if(!loc || loc === 'about:blank'){
+          viezuFrame.style.display = 'none';
+          iframeFallback.style.display = 'block';
+        }
+      } catch(e) {
+        // Cross-origin block — frame may still be showing content, leave it
+      }
+    });
+    viezuFrame.addEventListener('error', function(){
+      viezuFrame.style.display = 'none';
+      iframeFallback.style.display = 'block';
+    });
+  }
+
   // ===== Contact form (Formspree AJAX submit) =====
   const contactForm = document.getElementById('contactForm');
   if(contactForm){
