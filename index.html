@@ -13,7 +13,6 @@
 
 <link rel="stylesheet" href="assets/site.css">
 
-<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
 
@@ -199,7 +198,7 @@
       </form>
 
       <div class="finder-note">
-        Selecting a vehicle takes you to VIEZU's file finder for your type and make, with fuel, model and variant carried over as a search refinement — the same database we use to source your remap. Once you've found your file, give us a call to get it booked in at our unit in Rhosymedre.
+        Selecting your vehicle opens VIEZU's dealer portal with your details pre-filled — the same database we use to source your remap file. Once you've found your vehicle, give us a call to get it booked in at our unit in Rhosymedre.
       </div>
     </div>
   </div>
@@ -434,38 +433,36 @@
       if(!this.value){
         fuelSelect.innerHTML = fuelOptionsHTML;
         fuelSelect.value = '';
+        modelInput.disabled = true;
+        variantInput.disabled = true;
       }
       submitBtn.disabled = true;
     });
 
     fuelSelect.addEventListener('change', function(){
-      submitBtn.disabled = !(makeSelect.value && fuelSelect.value);
+      const ready = !!(makeSelect.value && fuelSelect.value);
+      submitBtn.disabled = !ready;
+      modelInput.disabled = !ready;
+      variantInput.disabled = !ready;
     });
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      const type = typeSelect.value;
-      const makeSlug = makeSelect.value;
-      const makeLabel = makeSelect.options[makeSelect.selectedIndex]?.textContent || '';
-      const fuelLabel = fuelSelect.options[fuelSelect.selectedIndex]?.textContent || '';
-      const hasFuel = !!fuelSelect.value;
+      const type    = typeSelect.value;
+      const make    = makeSelect.options[makeSelect.selectedIndex]?.textContent.trim() || '';
+      const fuel    = fuelSelect.options[fuelSelect.selectedIndex]?.textContent.trim() || '';
+      const model   = modelInput.value.trim();
+      const variant = variantInput.value.trim();
 
-      let url;
-      if(makeSlug && makeSlug !== 'other'){
-        // Try the known/likely VIEZU category path for this make.
-        const base = (type === 'cars') ? `https://viezu.com/shop/cars/${makeSlug}/` : `https://viezu.com/shop/${type}/${makeSlug}/`;
-        // VIEZU's fuel filter is a form control on that page, not a URL parameter,
-        // so pass the fuel type along as a query hint rather than pretending it filters automatically.
-        url = hasFuel ? `${base}?fuel=${encodeURIComponent(fuelSelect.value)}` : base;
-      } else if(makeSlug === 'other'){
-        // No specific make on file: search by fuel type within VIEZU's type finder, or just send them there.
-        url = hasFuel
-          ? `https://viezu.com/?s=${encodeURIComponent(fuelLabel)}&post_type=product`
-          : `https://viezu.com/your-vehicle/${type}/`;
-      } else {
-        url = `https://viezu.com/your-vehicle/${type}/`;
-      }
-      window.open(url, '_blank', 'noopener');
+      const params = new URLSearchParams();
+      params.set('id', '8620005ac78d8257435d490058c643dd');
+      if(type)                          params.set('type',    type);
+      if(make && make !== 'Other / Not Listed') params.set('make', make);
+      if(fuel)                          params.set('fuel',    fuel);
+      if(model)                         params.set('model',   model);
+      if(variant)                       params.set('variant', variant);
+
+      window.open(`https://viezu.com/dealer?${params.toString()}`, '_blank', 'noopener');
     });
   })();
 </script>
